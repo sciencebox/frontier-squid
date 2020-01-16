@@ -1,0 +1,6 @@
+[cern-frontier]
+name=cern-frontier
+baseurl=http://frontier.cern.ch/dist/rpms/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cern-frontier
