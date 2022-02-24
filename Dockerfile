@@ -18,6 +18,9 @@ RUN yum -y install \
     yum clean all && \
     rm -rf /var/cache/yum
 
+# Expose the port on which squid listens
+EXPOSE 3128/tcp
+
 # Run squid with default squid configuration
 CMD ["/bin/bash", "-c", \
       "/usr/sbin/squid -f /etc/squid/squid.conf.frontierdefault -N -z && \
