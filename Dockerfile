@@ -2,6 +2,11 @@ FROM cern/cc7-base:20220201-1
 
 MAINTAINER Enrico Bocchi <enrico.bocchi@cern.ch>
 
+# Install curl for healthchecks
+RUN yum -y install \
+       curl && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 # Install frontier-squid
 ADD ./repos/cern-frontier.repo /etc/yum.repos.d/cern-frontier.repo
