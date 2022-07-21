@@ -4,7 +4,7 @@
 BASE_TAG='gitlab-registry.cern.ch/sciencebox/docker-images/frontier-squid'
 
 # Specify the frontier-squid version to install (or comment out to use the latest)
-SQUID_VERSION='4.15-2.1'
+SQUID_VERSION='4.17-1.1'
 
 # Build the Docker image
 if [ -z $SQUID_VERSION ]; then
