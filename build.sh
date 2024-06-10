@@ -2,6 +2,7 @@
 
 # Tag name
 BASE_TAG='gitlab-registry.cern.ch/sciencebox/docker-images/frontier-squid'
+REGISTRY_URL='gitlab-registry.cern.ch'
 
 # Specify the frontier-squid version to install (or comment out to use the latest)
 SQUID_VERSION='4.17-2.1'
@@ -16,5 +17,10 @@ else
 fi
 
 # Push the image to the GitLab registry
-docker login gitlab-registry.cern.ch
-docker push $TAG
+if [ $? -eq 0 ]; then
+  echo
+  echo
+  echo "Pushing image $TAG to $REGISTRY_URL"
+  docker login $REGISTRY_URL
+  docker push $TAG
+fi

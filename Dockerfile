@@ -1,4 +1,4 @@
-FROM cern/cc7-base:20221101-1
+FROM cern/alma9-base:20240501-1
 
 MAINTAINER Enrico Bocchi <enrico.bocchi@cern.ch>
 
