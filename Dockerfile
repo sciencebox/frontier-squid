@@ -3,10 +3,10 @@ FROM cern/alma9-base:20240501-1
 MAINTAINER Enrico Bocchi <enrico.bocchi@cern.ch>
 
 # Install curl for healthchecks
-RUN yum -y install \
+RUN dnf -y install \
        curl && \
-    yum clean all && \
-    rm -rf /var/cache/yum
+    dnf clean all && \
+    rm -rf /var/cache/dnf
 
 # Create the squid user with uid:gid: 5000:5000
 RUN /usr/sbin/groupadd -g 5000 squid && \
@@ -17,10 +17,10 @@ ADD ./repos/cern-frontier.repo /etc/yum.repos.d/cern-frontier.repo
 ADD ./repos/RPM-GPG-KEY-cern-frontier /etc/pki/rpm-gpg/RPM-GPG-KEY-cern-frontier
 
 ARG SQUID_VERSION
-RUN yum -y install \
+RUN dnf -y install \
         frontier-squid${SQUID_VERSION} && \
-    yum clean all && \
-    rm -rf /var/cache/yum
+    dnf clean all && \
+    rm -rf /var/cache/dnf
 
 # Expose the port on which squid listens
 EXPOSE 3128/tcp
