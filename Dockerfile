@@ -1,4 +1,4 @@
-FROM cern/alma9-base:20240501-1
+FROM docker.io/cern/alma9-base:20240501-1
 
 MAINTAINER Enrico Bocchi <enrico.bocchi@cern.ch>
 
