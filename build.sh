@@ -15,7 +15,7 @@ if [ -z $SQUID_VERSION ]; then
   docker build -t $TAG .
 else
   TAG="$BASE_TAG:$SQUID_VERSION"
-  docker build --build-arg SQUID_VERSION=-$SQUID_VERSION -t $TAG .
+  docker build --build-arg SQUID_VERSION=$SQUID_VERSION -t $TAG .
 fi
 
 # Push the image to the GitLab registry
