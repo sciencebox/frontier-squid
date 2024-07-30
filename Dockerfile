@@ -18,7 +18,7 @@ ADD ./repos/RPM-GPG-KEY-cern-frontier /etc/pki/rpm-gpg/RPM-GPG-KEY-cern-frontier
 
 ARG SQUID_VERSION
 RUN dnf -y install \
-        frontier-squid${SQUID_VERSION} && \
+        frontier-squid-${SQUID_VERSION} && \
     dnf clean all && \
     rm -rf /var/cache/dnf
 
