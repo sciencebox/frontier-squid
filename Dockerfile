@@ -1,12 +1,12 @@
-FROM cern/cc7-base:20221101-1
+FROM docker.io/cern/alma9-base:20240701-2
 
 MAINTAINER Enrico Bocchi <enrico.bocchi@cern.ch>
 
 # Install curl for healthchecks
-RUN yum -y install \
+RUN dnf -y install \
        curl && \
-    yum clean all && \
-    rm -rf /var/cache/yum
+    dnf clean all && \
+    rm -rf /var/cache/dnf
 
 # Create the squid user with uid:gid: 5000:5000
 RUN /usr/sbin/groupadd -g 5000 squid && \
@@ -17,10 +17,10 @@ ADD ./repos/cern-frontier.repo /etc/yum.repos.d/cern-frontier.repo
 ADD ./repos/RPM-GPG-KEY-cern-frontier /etc/pki/rpm-gpg/RPM-GPG-KEY-cern-frontier
 
 ARG SQUID_VERSION
-RUN yum -y install \
-        frontier-squid${SQUID_VERSION} && \
-    yum clean all && \
-    rm -rf /var/cache/yum
+RUN dnf -y install \
+        frontier-squid-${SQUID_VERSION} && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf
 
 # Expose the port on which squid listens
 EXPOSE 3128/tcp
